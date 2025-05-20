@@ -60,13 +60,13 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     // Coil for image loading
-    implementation("io.coil-kt:coil-compose:2.5.0")
+    implementation(libs.coil.compose)
 
     // Navigation Compose
-    implementation("androidx.navigation:navigation-compose:2.7.7")
+    implementation(libs.androidx.navigation.compose.v277)
 
     // OkHttp Logging Interceptor
-    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+    implementation(libs.logging.interceptor)
 
     // other dependencies
 
@@ -74,4 +74,13 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     kapt(libs.hilt.android.compiler)
+
+    //Media 3
+    implementation(libs.androidx.media3.exoplayer)
+    implementation(libs.androidx.media3.ui)
+
+    implementation(libs.accompanist.pager)
+    implementation(libs.androidx.material)
+
+
 }

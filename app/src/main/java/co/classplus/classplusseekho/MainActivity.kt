@@ -98,7 +98,8 @@ fun AppNavigation() {
             composable(BottomNavItem.Home.route) {
                 HomeScreen(
                     onCourseClick = { courseId ->
-                        navController.navigate("course/$courseId")
+                      //  val encodedUrl = java.net.URLEncoder.encode("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4", "UTF-8")
+                        navController.navigate("reels")
                     },
                     navController = navController
                 )
@@ -113,7 +114,7 @@ fun AppNavigation() {
                 // Placeholder for My Library screen
                 Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                     Text("My Library", style = MaterialTheme.typography.headlineMedium)
-                }
+}
             }
             // Keep the rest of your navigation (search, category, course details) outside the bottom nav
             composable("search") {
@@ -136,7 +137,8 @@ fun AppNavigation() {
                     onBackClick = { navController.navigateUp() },
                     onCourseClick = { courseId ->
                         navController.navigate("course/$courseId")
-                    }
+                    },
+                    navController = navController
                 )
             }
             composable(
@@ -146,8 +148,19 @@ fun AppNavigation() {
                 val courseId = backStackEntry.arguments?.getString("courseId") ?: ""
                 CourseDetailsScreen(
                     courseId = courseId,
-                    onBackClick = { navController.navigateUp() }
+                    onBackClick = { navController.navigateUp() },
+                    navController = navController
                 )
+            }
+//            composable(
+//                route = "video/{videoUri}",
+//                arguments = listOf(navArgument("videoUri") { type = NavType.StringType })
+//            ) { backStackEntry ->
+//                val videoUri = backStackEntry.arguments?.getString("videoUri") ?: ""
+//                VideoPlayerScreen(videoUri = videoUri)
+//            }
+            composable("reels") {
+                ReelsScreen()
             }
         }
     }

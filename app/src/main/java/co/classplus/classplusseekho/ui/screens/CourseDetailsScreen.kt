@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import coil.compose.AsyncImage
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -20,6 +21,7 @@ import coil.compose.AsyncImage
 fun CourseDetailsScreen(
     courseId: String,
     onBackClick: () -> Unit,
+    navController: NavController,
     modifier: Modifier = Modifier
 ) {
     // In a real app, you would fetch these details based on courseId
@@ -75,7 +77,11 @@ fun CourseDetailsScreen(
                     )
                     // Play button overlay
                     IconButton(
-                        onClick = { /* Play preview video */ },
+                        onClick = {
+                            val videoUrl = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+                            val encodedUrl = java.net.URLEncoder.encode(videoUrl, "UTF-8")
+                            navController.navigate("video/$encodedUrl")
+                        },
                         modifier = Modifier
                             .size(64.dp)
                             .align(Alignment.Center)

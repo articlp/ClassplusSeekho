@@ -18,6 +18,7 @@ import co.classplus.classplusseekho.ui.components.CourseCard
 import co.classplus.classplusseekho.ui.components.CourseInfo
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -25,7 +26,8 @@ fun CategoryListingScreen(
     categoryName: String,
     onBackClick: () -> Unit,
     onCourseClick: (String) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    navController: NavController
 ) {
     // Mock data for courses in this category
     val courses = remember {
@@ -144,7 +146,10 @@ fun CategoryListingScreen(
                 items(courses) { course ->
                     CourseCard(
                         courseInfo = course,
-                        onClick = { onCourseClick(course.id) }
+                        onClick = {
+                            // Navigate to VideoPlayerScreen with a video URL
+                            navController.navigate("video/http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
+                        }
                     )
                 }
             }
