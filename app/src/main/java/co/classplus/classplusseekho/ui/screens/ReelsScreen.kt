@@ -182,14 +182,9 @@ fun rememberExoPlayerWithLifecycle(
             })
 
             val defaultDataSource = DefaultHttpDataSource.Factory()
-//            val source = ProgressiveMediaSource.Factory(defaultDataSource)
-//                .createMediaSource(MediaItem.fromUri(reelUrl))
-            val testUrl = "https://storage.googleapis.com/exoplayer-test-media-1/mp4/android-screens-10s.mp4"
             val source = ProgressiveMediaSource.Factory(defaultDataSource)
-                .createMediaSource(MediaItem.fromUri(testUrl))
+                .createMediaSource(MediaItem.fromUri(reelUrl))
             setMediaSource(source)
-
-
             prepare()
         }
     }
@@ -490,13 +485,13 @@ fun ReelsBottomItems(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Image(
-                painter = rememberAsyncImagePainter(reelInfo.profilePicUrl),
-                contentDescription = null,
-                modifier = Modifier
-                    .size(30.dp)
-                    .clip(CircleShape),
-            )
+//            Image(
+//                painter = rememberAsyncImagePainter(reelInfo.profilePicUrl),
+//                contentDescription = null,
+//                modifier = Modifier
+//                    .size(30.dp)
+//                    .clip(CircleShape),
+//            )
             Spacer(modifier = Modifier.width(8.dp))
             Text(
                 text = reelInfo.username,
@@ -745,13 +740,13 @@ fun ReelsColumnIcons(
         )
     }
     IconButton(onClick = { onIconClicked(CustomIcons.AUDIO) }) {
-        Image(
-            painter = rememberAsyncImagePainter(reelInfo.audioPicUrl),
-            contentDescription = null,
-            modifier = Modifier
-                .size(30.dp)
-                .clip(CircleShape)
-        )
+//        Image(
+//            painter = rememberAsyncImagePainter(reelInfo.audioPicUrl),
+//            contentDescription = null,
+//            modifier = Modifier
+//                .size(30.dp)
+//                .clip(CircleShape)
+//        )
     }
 }
 

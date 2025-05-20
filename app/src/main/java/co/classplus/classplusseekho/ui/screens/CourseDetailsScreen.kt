@@ -78,7 +78,7 @@ fun CourseDetailsScreen(
                     // Play button overlay
                     IconButton(
                         onClick = {
-                            val videoUrl = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+                            val videoUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
                             val encodedUrl = java.net.URLEncoder.encode(videoUrl, "UTF-8")
                             navController.navigate("video/$encodedUrl")
                         },
